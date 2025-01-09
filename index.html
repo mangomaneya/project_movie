@@ -9,12 +9,25 @@
 </head>
 <body>
     <header>
-        <h1>영화사이트</h1>
+        <h1 id="title">영화 검색 사이트</h1>
+        <label for="input_search"></label>
+        <input type="search" id="input_search" placeholder="영화를 검색하세요" name="search">
+        <button id="search_submit"> 검색 </button>
     </header>
-    <main>메인영역
+
+    <nav>
+        <div>
+            <p>북마크 보기</p>
+        </div>
+    </nav>
+    
+    <main>
         <container id="movies"></container>
     </main>
-    <footer>푸터영역</footer>
+
+    <footer>
+
+    </footer>
     
 
     <script src="/js/script.js"></script>
