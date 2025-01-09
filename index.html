@@ -9,27 +9,48 @@
 </head>
 <body>
     <header>
-        <h1 id="title">영화 검색 사이트</h1>
-        <label for="input_search"></label>
-        <input type="search" id="input_search" placeholder="영화를 검색하세요" name="search">
-        <button id="search_submit"> 검색 </button>
+        <div id="cont_head" class="container">
+            <h1 id="title">영화 검색 사이트</h1>
+            <div class="search_area">
+                <label for="input_search"></label>
+                <input type="search" id="input_search" placeholder="영화를 검색하세요" name="search">
+                <button id="search_submit"> 검색 </button>
+            </div>
+            
+            <nav>
+                <div class="bookmark">
+                    <p>북마크 보기</p>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <div>
-            <p>북마크 보기</p>
-        </div>
-    </nav>
-    
     <main>
-        <container id="movies"></container>
+        <div id="cont_movie" class="container">
+            
+            <div class="movies">
+                <div alt="movie poster" class="movie_poster"></div>
+                <h2 class="movie_title">title</h2>
+                <div class="movie_card_bott">
+                    <p class="movie_aver">vote_average</p>
+                </div>
+                <!-- <p class="movie_desc">overview</p>
+                <p class="movie_date">release_date</p> -->
+            </div>
+        </div>
     </main>
+    
+    <section>
+        <div class="modal"></div>
+    </section>
 
     <footer>
-
+        <p>right 어쩌구 저쩌구</p>
     </footer>
     
 
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js">
+        
+    </script>
 </body>
 </html>

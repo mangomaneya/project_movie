@@ -1,0 +1,131 @@
+body{
+    background-color: rgb(243, 243, 243);
+}
+
+@media only screen and (max-width: 768px) {
+    /* 화면 너비가 768px 이하일 때 적용 */
+    body{
+ 
+    }
+    .container{
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    /* 화면 너비가 1025px 이상일 때 적용 */
+    body{
+    }
+    .container{
+        width: 90%;
+    }
+    
+}
+/* 공통 레이아웃 */
+.container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* header */
+header{
+    background-color: #272727;;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title{
+    font-size: 2em;
+}
+.search_area{
+    width: 80%;
+    margin: 12px;
+}
+
+#input_search{
+    width: 80%;
+    height: 48px;
+    border-radius: 0.2em;
+}
+#search_submit{
+    width: 18%;
+    height: 48px;
+    border-radius: 0.2em;
+}
+.bookmark{
+    border: 1px solid #ffffff;
+    padding: 12px;
+    width: fit-content;
+    border-radius: 0.2em;
+}
+/* header */
+
+/* main */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0;
+}
+#cont_movie{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-between;
+
+}
+.movies{
+    width: 200px;
+    height: 380px;
+    margin : 12px 0;
+    border-radius: 0.4em;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 0 8px #939393;
+}
+.movie_poster{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #272727;
+    height: 310px;
+}
+.movie_title{
+    font-size: 1.2rem;
+    margin: 0 8px;
+    height: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 24px;
+}
+.movie_card_bott{
+    padding: 8px;
+    background-color:darkgrey;
+}
+.movie_aver{
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+/* main */
+/* footer */
+footer{
+    background-color: #272727;
+    height: 60px;
+    text-align: center;
+    color: rgb(178, 178, 178);
+    line-height: 60px
+}
