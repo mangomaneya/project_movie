@@ -2,7 +2,7 @@ body{
     background-color: rgb(243, 243, 243);
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     /* 화면 너비가 768px 이하일 때 적용 */
     body{
  
@@ -12,8 +12,8 @@ body{
     }
 }
 
-@media only screen and (min-width: 769px) {
-    /* 화면 너비가 1025px 이상일 때 적용 */
+@media screen and (min-width: 769px) {
+    /* 화면 너비가 769px 이상일 때 적용 */
     body{
     }
     .container{

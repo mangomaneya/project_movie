@@ -3,8 +3,8 @@ const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: "Bearer 631be9f8efc36b469ddab67aab82dd56"
-    // Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzFiZTlmOGVmYzM2YjQ2OWRkYWI2N2FhYjgyZGQ1NiIsIm5iZiI6MTczNjI5OTE2My44NDQsInN1YiI6IjY3N2RkMjliMDQ0YjZjYTY3NjRlNGYyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fnslzgWikJk9u6em-d-3k0O-2VENF4OeulMAtHTr-u8"
+    // Authorization: "Bearer 631be9f8efc36b469ddab67aab82dd56"
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzFiZTlmOGVmYzM2YjQ2OWRkYWI2N2FhYjgyZGQ1NiIsIm5iZiI6MTczNjI5OTE2My44NDQsInN1YiI6IjY3N2RkMjliMDQ0YjZjYTY3NjRlNGYyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fnslzgWikJk9u6em-d-3k0O-2VENF4OeulMAtHTr-u8"
   }
 };
 const apiKey = "631be9f8efc36b469ddab67aab82dd56"; // 보안필요
@@ -23,14 +23,13 @@ const btn_search = document.querySelector("#search_submit");
 const input_search = document.querySelector("#input_search");
 let query = input_search.value.toLowerCase();
 
-console.log(movies);
 // API데이터 읽어오기 테스트
 // fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
 //   .then(res => res.json()) // json형식으로 응답 변환
 //   .then(res => console.log(res)) // 데이터를 콘솔에 출력
 //   .catch(err => console.error(err)); // 에러 처리
 
-fetch(`${base_url}/movie/now_playing?language=en-US&page=1`, options)
+fetch(`${base_url}/movie/now_playing?language=ko-KR&page=1`, options)
   .then(res => res.json()) 
   .then(res => {
     console.log(res);
