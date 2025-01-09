@@ -41,7 +41,7 @@ header{
 }
 
 #title{
-    font-size: 2em;
+    font-size: 2rem;
 }
 .search_area{
     width: 80%;
@@ -51,18 +51,21 @@ header{
 #input_search{
     width: 80%;
     height: 48px;
-    border-radius: 0.2em;
+    border-radius: 0.2rem;
+    padding: 12px;
+    font-size: 1rem;
 }
 #search_submit{
     width: 18%;
     height: 48px;
-    border-radius: 0.2em;
+    border-radius: 0.2rem;
+    font-size: 1rem;
 }
 .bookmark{
     border: 1px solid #ffffff;
     padding: 12px;
     width: fit-content;
-    border-radius: 0.2em;
+    border-radius: 0.2rem;
 }
 /* header */
 
@@ -78,7 +81,7 @@ main{
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
 }
 .movies{
@@ -128,4 +131,29 @@ footer{
     text-align: center;
     color: rgb(178, 178, 178);
     line-height: 60px
+}
+/* section */
+section{
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.movie_data_detail{
+    display: flex;
+    flex-direction: column;  
+}
+.modal_movie_detail{
+    background-color: yellow;
+    width: 720px;
+    display: flex;
+    border-radius: 0.4em;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 0 8px #939393;
+}
+.movie_poster_detail{
+    width: 360px;
+    height: 520px;
 }
