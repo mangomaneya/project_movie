@@ -18,7 +18,7 @@
             id="input_search"
             placeholder="영화를 검색하세요"
             name="search"
-            
+            onkeyup="enterSearch(event)"
           />
           <button id="btn_search">검색</button>
         </div>
@@ -32,7 +32,7 @@
     </header>
 
     <main>
-      <div id="cont_movie" class="container">
+      <div id="movie_container" class="container">
         <!-- <div class="movies">
           <div alt="movie poster" class="movie_poster"></div>
           <h2 class="movie_title">title</h2>
@@ -65,6 +65,6 @@
       <p>right 어쩌구 저쩌구</p>
     </footer>
 
-    <script src="/js/script.js" type="module"></script>
+    <script src="/js/script.js" ></script>
   </body>
 </html>

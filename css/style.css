@@ -45,6 +45,8 @@ header{
 
 #title{
     font-size: 2rem;
+    src :url(#);
+    cursor: pointer;
 }
 .search_area{
     width: 80%;
@@ -63,12 +65,14 @@ header{
     height: 48px;
     border-radius: 0.2rem;
     font-size: 1rem;
+    cursor: pointer;
 }
 .bookmark{
     border: 1px solid #ffffff;
     padding: 12px;
     width: fit-content;
     border-radius: 0.2rem;
+    cursor: pointer;
 }
 /* header */
 
@@ -79,11 +83,12 @@ main{
     align-items: center;
     margin: 24px 0;
 }
-#cont_movie{
+#movie_container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto;
+    gap: 12px;
     justify-content: space-evenly;
 
 }
@@ -118,8 +123,9 @@ main{
     line-height: 24px;
 }
 .movie_card_bott{
-    padding: 8px;
-    background-color:darkgrey;
+    padding: 5px;
+    background-color: #272727;
+    color: white;
 }
 .movie_aver{
     font-size: 0.9rem;
@@ -136,11 +142,13 @@ footer{
     line-height: 60px
 }
 /* section */
-section{
+.modal{
     background-color: blue;
-    display: flex;
     flex-direction: row;
     justify-content: center;
+    position: fixed;
+    top: 300px;
+    left: 0;
 }
 .movie_data_detail{
     display: flex;
