@@ -19,7 +19,7 @@ let logo_path = ""; // 로고파일 경로(넷플릭스 등)
 const container_m = document.querySelector("#cont_movie");
 let movies = document.querySelectorAll(".movies")
 let movie_poster = document.querySelectorAll(".movie_poster");
-const btn_search = document.querySelector("#search_submit");
+const btn_search = document.querySelector("#btn_search");
 const input_search = document.querySelector("#input_search");
 let query = input_search.value.toLowerCase();
 
@@ -29,6 +29,7 @@ let query = input_search.value.toLowerCase();
 //   .then(res => console.log(res)) // 데이터를 콘솔에 출력
 //   .catch(err => console.error(err)); // 에러 처리
 
+//이건 동기로 처리된거... 
 fetch(`${base_url}/movie/now_playing?language=ko-KR&page=1`, options)
   .then(res => res.json()) 
   .then(res => {
