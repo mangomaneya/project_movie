@@ -58,7 +58,7 @@ header{
     padding: 12px;
     font-size: 1rem;
 }
-#search_submit{
+#btn_search{
     width: 18%;
     height: 48px;
     border-radius: 0.2rem;

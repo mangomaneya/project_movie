@@ -20,7 +20,7 @@ const container_m = document.querySelector("#cont_movie");
 let movie_poster = document.querySelectorAll(".movie_poster");
 const btn_search = document.querySelector("#btn_search");
 const input_search = document.querySelector("#input_search");
-let query = input_search.value.toLowerCase();
+
 let movieData = [];
 
 fetchMovies(movie_url).then(function (movies) {
@@ -29,14 +29,28 @@ fetchMovies(movie_url).then(function (movies) {
 
 const makeMovieCard = function(movies){
   movieData = movies;
-  container_m.innerHTML = movieData.map(function(movie) {
-    `<div class="movies" data-name =${movie.id}>
-          <img alt="movie poster" class="movie_poster" src="${img_base_url}${movies.poster_path}">
+  container_m.innerHTML = movies.map(function(movie) {
+    return `<div class="movies" data-name =${movie.id}>
+          <img alt="movie poster" class="movie_poster" src="${img_base_url}${movie.poster_path}">
           <h2 class="movie_title">${movie.title}</h2>
           <p class="movie_aver">⭐️ ${movie.vote_average}</p>
       </div>`
   }).join('');
 };
+
+// 검색 버튼 이벤트
+btn_search.addEventListener("click", () => {
+  let query = input_search.value.toLowerCase();
+  // alert(query);
+ 
+});
+
+const search_movie = function(){
+  let movielistUrl = query>0 ? `https://api.themoviedb.org/3/search/movie?title=${query}&include_adult=false&language=ko&page=1` : movie_url ;
+  const q_movies = fetchMovies(movielistUrl);
+  container_m.innerHTML = "";
+  makeMovieCard(q_movies);
+}
 
 // 카드 ui뿌리기 
 // fetch(movie_url, options)
@@ -53,8 +67,9 @@ const makeMovieCard = function(movies){
 //   })
 //   .catch(err => console.error(err));
 
-// 검색 버튼 이벤트
-btn_search.addEventListener("click", () => {
-  alert(query);
 
-});
+
+fetch('https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1', options)
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
