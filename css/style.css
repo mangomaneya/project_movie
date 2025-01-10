@@ -28,6 +28,9 @@ body{
     flex-direction: column;
     align-items: center;
 }
+.hide{
+    display: none;
+}
 /* header */
 header{
     background-color: #272727;;
