@@ -143,19 +143,16 @@ footer{
 }
 /* section */
 .modal{
-    background-color: blue;
+    background-color: rgba(0,0,0, 0.5);
     flex-direction: row;
     justify-content: center;
     position: fixed;
-    top: 300px;
+    top: 0;
     left: 0;
-}
-.movie_data_detail{
-    display: flex;
-    flex-direction: column;  
+    right: 0;
+    bottom: 0;
 }
 .modal_movie_detail{
-    background-color: yellow;
     width: 720px;
     display: flex;
     border-radius: 0.4em;
@@ -163,6 +160,46 @@ footer{
     overflow: hidden;
     box-sizing: border-box;
     box-shadow: 0 0 8px #939393;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.movie_data_detail{
+    display: flex;
+    flex-direction: column;  
+    width: 100%;
+    justify-content: space-between;
+    padding: 32px 16px 16px 16px;
+}
+.detail_text_area{
+    
+}
+.movie_title_detail{
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+.detail_close_btn{
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+.detail_btn_area{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.detail_btn{
+    height: 42px;
+}
+.bookmark_detail{
+    flex-grow: 1;
+    min-width: 200px;
+}
+.like{
+    min-width: 42px;
 }
 .movie_poster_detail{
     width: 360px;
