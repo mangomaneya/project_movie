@@ -36,6 +36,18 @@ const fetchMovies = function (Url) {
     });
 };
 
+// 영화의 상세정보 가져오기
+const fetchMovies_detail = function (Url) {
+  return fetch(Url, options)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (res) {
+      // const {title, vote_average, release_date, poster_path,overview } = 
+      return res;
+    });
+};
+
 //가져온 영화목록을 카드 ui로 만들기
 fetchMovies(movieUrl).then(function (result) {
   console.log(result);
@@ -82,7 +94,7 @@ function enterSearch(event){
 
 //영화 상세창 관련 DOM가져오기
 let movie_poster_d = document.querySelector(".movie_poster_detail");
-let movie_title_d = document.querySelector(".movie_tltle_detail");
+let movie_title_d = document.querySelector(".movie_title_detail");
 let movie_desc_d = document.querySelector(".movie_desc");
 let movie_aver_d = document.querySelector(".movie_aver_detail");
 let movie_date_d = document.querySelector(".movie_date");
@@ -90,7 +102,7 @@ let movie_date_d = document.querySelector(".movie_date");
 //data-id 속성을 가지고 영화정보를 가져와서 모달에 반영하기 
 const movieDetail = function(id){
   let idUrl = `${movieDetailUrl}${id}?language=ko-KR`;
-  fetchMovies(idUrl).then(function(result){
+  fetchMovies_detail(idUrl).then(function(result){
     console.log(result);
     makeMovieDetail(result);
   });
@@ -110,8 +122,8 @@ movieContainer.addEventListener("click",function(e){
 })
 
 const makeMovieDetail = function(info){
-  movie_poster_d.textContent = info.title;
   movie_poster_d.setAttribute("src",`${img_base_url}${info.poster_path}`);
+  movie_title_d.textContent = info.title;
   movie_desc_d.textContent = info.overview;
   movie_date_d.textContent =info.release_date;
   movie_aver_d.textContent = info.vote_average;
