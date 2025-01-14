@@ -8,7 +8,7 @@ export const makeMovieCard = function (movies) {
           <img alt="movie poster" class="movie_poster" src="https://image.tmdb.org/t/p/original${m.poster_path}">
           <h2 class="movie_title">${m.title}</h2>
           <div class="movie_card_bott">
-            <p class="movie_aver">⭐️ ${m.vote_average}</p>
+            <p class="movie_aver"><i class="icon-star"></i> ${m.vote_average}</p>
           </div>
         </div>`;
     movieContainer.innerHTML += tempHtml;

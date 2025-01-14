@@ -9,9 +9,7 @@ const movieUrl =
 const movieUrlSearch = "https://api.themoviedb.org/3/search/movie";
 const movieDetailUrl = "https://api.themoviedb.org/3/movie/";
 // ?query=${query}&include_adult=false&language=ko-KR&page=1
-const img_base_url = "https://image.tmdb.org/t/p/original";
 // DOM 관련 변수 선언
-
 const btn_search = document.querySelector("#btn_search");
 const input_search = document.querySelector("#input_search");
 const modal = document.querySelector(".modal");
@@ -60,7 +58,7 @@ const movieDetail = function (id) {
   toggleModal();
   let idUrl = `${movieDetailUrl}${id}?language=ko-KR`;
   fetchMovies_detail(idUrl).then(function (result) {
-    // console.log(result);
+    // console.log(idUrl);
     makeMovieDetail(result);
   });
 };

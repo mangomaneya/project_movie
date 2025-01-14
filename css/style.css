@@ -1,7 +1,9 @@
 body{
     background-color: rgb(243, 243, 243);
 }
-
+i{
+    display: inline;
+}
 @media screen and (max-width: 768px) {
     /* 화면 너비가 768px 이하일 때 적용 */
     body{
@@ -173,11 +175,23 @@ footer{
     padding: 32px 16px 16px 16px;
 }
 .detail_text_area{
-    
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 .movie_title_detail{
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 12px;
+}
+.icon-star{
+    color: #ffe81c;
+    
+}
+.movie_aver_detail{
+    display: inline;
+}
+.movie_desc{
+    line-height: 1.3rem;
 }
 .detail_close_btn{
     position: absolute;
