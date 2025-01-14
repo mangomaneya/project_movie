@@ -6,6 +6,7 @@
     <title>movie project</title>
     <link rel="stylesheet" href="/css/reset.css" type="text/css" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/fontello.css" type="text/css">
   </head>
   <body>
     <header>
@@ -18,7 +19,6 @@
             id="input_search"
             placeholder="영화를 검색하세요"
             name="search"
-            onkeyup="enterSearch(event)"
           />
           <button id="btn_search">검색</button>
         </div>
@@ -60,7 +60,7 @@
           </div>
           <div class="detail_btn_area">
             <button class="bookmark_detail detail_btn">북마크 저장</button>
-            <button class="like detail_btn">♡</button>
+            <button class="like detail_btn"><i class=" icon-heart-empty" id="ilike"></i></button>
           </div>
         </div>
       </div>
@@ -70,6 +70,6 @@
       <p>right 어쩌구 저쩌구</p>
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js" type="module"></script>
   </body>
 </html>
