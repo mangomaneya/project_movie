@@ -14,6 +14,7 @@ export const makeMovieCard = function (movies) {
     movieContainer.innerHTML += tempHtml;
   });
 };
+
 //bookmark용 카드 ui
 export const bookmarkMovieCard = function (m) {
   let tempHtml = `<div class="movies" data-id="${m.id}">

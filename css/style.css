@@ -229,5 +229,5 @@ footer{
 
 }
 .saved::after {
-    content: "북마크 제거";
+        content: "북마크 제거";
 }

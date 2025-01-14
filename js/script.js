@@ -16,6 +16,7 @@ const modal = document.querySelector(".modal");
 const modal_close = document.querySelector(".detail_close_btn");
 const btn_bookmark = document.querySelector(".bookmark");
 const btn_like = document.querySelector(".like");
+const title = document.querySelector("#title");
 //영화 상세창 관련 DOM가져오기
 
 //가져온 영화목록을 카드 ui로 만들기
@@ -173,4 +174,8 @@ bookmarkAddBtn.addEventListener("click", function (e) {
     addBookmark(dataId);
     bookmarkAddBtn.classList.add("saved");
   }
+});
+
+title.addEventListener("click",function(){
+  location.reload();
 });
