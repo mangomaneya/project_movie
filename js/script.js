@@ -98,3 +98,31 @@ btn_like.addEventListener("click", function () {
     i.classList.add("icon-heart-empty");
   }
 });
+
+const movieStorage = window.localStorage;
+// movieStorage.setItem("Id", "558449")
+// const cat = movieStorage.getItem("Id");
+// console.log(movieStorage);
+// console.log(cat);
+
+const bookmarkAddBtn = document.querySelector(".bookmark_detail");
+
+const addBookmark = function(id){
+  movieStorage.setItem(id,id);
+  console.log(movieStorage);
+}
+const delBookmark = function(id){
+  movieStorage.removeItem(id);
+}
+const clearBookmark = function(){
+  movieStorage.clear();
+}
+
+bookmarkAddBtn.addEventListener("click", function(e){
+  let dataId = e.target.closest(".modal_movie_detail").getAttribute("data-id");
+  //현재 얻은 데이터 아이디가 스토리지에 있으면(find?)
+  // class list에 saved를 추가
+  // saved가 이미 리스트에 포함된 상태이면
+  // delbookmark를 실행하고, saved를 없애기 
+  addBookmark(dataId);
+});

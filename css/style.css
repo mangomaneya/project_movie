@@ -219,3 +219,7 @@ footer{
     width: 360px;
     height: 520px;
 }
+.saved{
+    background-color: #272727;
+    color: #ffffff;
+}

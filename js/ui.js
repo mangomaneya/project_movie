@@ -22,10 +22,13 @@ export const makeMovieDetail = function (info) {
   const movie_desc_d = document.querySelector(".movie_desc");
   const movie_aver_d = document.querySelector(".movie_aver_detail");
   const movie_date_d = document.querySelector(".movie_date");
+  const movie_id = document.querySelector(".modal_movie_detail");
+
   movie_poster_d.setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${info.poster_path}`
   );
+  movie_id.setAttribute("data-id",info.id)
   movie_title_d.textContent = info.title;
   movie_desc_d.textContent = info.overview;
   movie_date_d.textContent = info.release_date;
