@@ -14,6 +14,18 @@ export const makeMovieCard = function (movies) {
     movieContainer.innerHTML += tempHtml;
   });
 };
+//bookmark용 카드 ui
+export const bookmarkMovieCard = function (m) {
+  let tempHtml = `<div class="movies" data-id="${m.id}">
+          <img alt="movie poster" class="movie_poster" src="https://image.tmdb.org/t/p/original${m.poster_path}">
+          <h2 class="movie_title">${m.title}</h2>
+          <div class="movie_card_bott">
+            <p class="movie_aver"><i class="icon-star"></i> ${m.vote_average}</p>
+          </div>
+        </div>`;
+    movieContainer.innerHTML += tempHtml;
+  
+};
 
 // 영화 상세창 ui
 export const makeMovieDetail = function (info) {

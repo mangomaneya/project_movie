@@ -211,6 +211,10 @@ footer{
 .bookmark_detail{
     flex-grow: 1;
     min-width: 200px;
+
+}
+.bookmark_detail::after{
+    content: "북마크 추가";
 }
 .like{
     min-width: 42px;
@@ -222,4 +226,8 @@ footer{
 .saved{
     background-color: #272727;
     color: #ffffff;
+
+}
+.saved::after {
+    content: "북마크 제거";
 }
