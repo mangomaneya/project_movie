@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(0, 0, 0);
 }
 i{
     display: inline;
@@ -99,23 +99,30 @@ main{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 auto;
-    gap: 12px;
+    margin: 36px auto;
+    gap: 28px;
     justify-content: space-evenly;
-
+    color: #939393;
 }
 .movies{
     width: 200px;
-    height: 380px;
-    margin : 12px 0;
+    height: auto;
+    color: #ffffff;
     border-radius: 0.4em;
-    background-color: #ffffff;
+    background-color: rgba(187, 187, 187, 0.316);
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    box-shadow: 0 0 8px #939393;
+    gap: 12px;
+    box-shadow: 0 0 16px #e0e0e090;
+    transition: all 0.3s;
+}
+.movies:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 16px #e0e0e0ef;
+    transition: all 0.3s;
 }
 .movie_poster{
     width: 100%;
@@ -123,7 +130,8 @@ main{
     background-repeat: no-repeat;
     background-position: center;
     background-color: #272727;
-    height: 310px;
+    height: auto;
+    min-height: 310px;
 }
 .movie_title{
     font-size: 1.2rem;
@@ -135,27 +143,35 @@ main{
     line-height: 24px;
 }
 .movie_card_bott{
-    padding: 5px;
+    padding: 6px;
     background-color: #272727;
-    color: white;
+    color: white;    
 }
 .movie_aver{
     font-size: 0.9rem;
     margin-top: 6px;
+    color: #ffe81c;
 }
 
 /* main */
 /* footer */
 footer{
     background-color: #272727;
-    height: 60px;
+    height: 64px;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
     text-align: center;
     color: rgb(178, 178, 178);
-    line-height: 60px
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#secret_btn{
+    cursor: pointer;
 }
 /* section */
 .modal{
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     flex-direction: row;
     justify-content: center;
     position: fixed;
@@ -171,7 +187,7 @@ footer{
     background-color: #ffffff;
     overflow: hidden;
     box-sizing: border-box;
-    box-shadow: 0 0 8px #939393;
+    box-shadow: 0 0 24px #ffffffa6;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -182,7 +198,8 @@ footer{
     flex-direction: column;  
     width: 100%;
     justify-content: space-between;
-    padding: 32px 16px 16px 16px;
+    padding: 48px 16px 16px 16px;
+    
 }
 .detail_text_area{
     display: flex;
@@ -190,7 +207,7 @@ footer{
     gap: 16px;
 }
 .movie_title_detail{
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 12px;
 }
 .icon-star{
@@ -202,6 +219,8 @@ footer{
 }
 .movie_desc{
     line-height: 1.3rem;
+    height: 260px;
+    overflow: auto;
 }
 .detail_close_btn{
     position: absolute;

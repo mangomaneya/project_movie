@@ -17,7 +17,8 @@ const modal_close = document.querySelector(".detail_close_btn");
 
 const btn_like = document.querySelector(".like");
 const title = document.querySelector("#title");
-//영화 상세창 관련 DOM가져오기
+
+const secretBtn = document.querySelector("#secret_btn")
 
 //가져온 영화목록을 카드 ui로 만들기
 fetchMovies(movieUrl).then(function (result) {
@@ -50,6 +51,10 @@ const searchMovie = function (query) {
       : movieUrl;
   movieContainer.innerHTML = "";
   fetchMovies(searchUrl).then(function (result) {
+    if(result.length === 0) {
+      movieContainer.innerHTML = "<p>검색된 영화가 없습니다.</p>";
+    }
+    
     makeMovieCard(result);
   });
 };
@@ -120,6 +125,7 @@ const delBookmark = function (id) {
 const clearBookmark = function () {
   movieStorage.clear();
 };
+
 //북마크 버튼 클릭이벤트 
 btn_bookmark.addEventListener("click", function () {
   if(!btn_bookmark.classList.contains("close_bookmark")){
@@ -187,4 +193,11 @@ bookmarkAddBtn.addEventListener("click", function (e) {
     addBookmark(dataId);
     bookmarkAddBtn.classList.add("saved");
   }
+});
+
+//북마크 지우기 비밀버튼 
+secretBtn.addEventListener("click",function(){
+  alert(`북마크 지우기 완료!`)
+  clearBookmark();
+  location.reload();
 });
