@@ -14,7 +14,7 @@ const btn_search = document.querySelector("#btn_search");
 const input_search = document.querySelector("#input_search");
 const modal = document.querySelector(".modal");
 const modal_close = document.querySelector(".detail_close_btn");
-const btn_bookmark = document.querySelector(".bookmark");
+
 const btn_like = document.querySelector(".like");
 const title = document.querySelector("#title");
 //영화 상세창 관련 DOM가져오기
@@ -101,23 +101,37 @@ btn_like.addEventListener("click", function () {
   }
 });
 
+title.addEventListener("click",function(){
+  location.reload();
+});
+
 const movieStorage = window.localStorage;
 const bookmarkAddBtn = document.querySelector(".bookmark_detail");
+const btn_bookmark = document.querySelector(".bookmark");
 
 const addBookmark = function (id) {
   movieStorage.setItem(id, id);
-  console.log(movieStorage);
+  // console.log(movieStorage);
 };
 const delBookmark = function (id) {
   movieStorage.removeItem(id);
-  console.log(movieStorage);
+  // console.log(movieStorage);
 };
 const clearBookmark = function () {
   movieStorage.clear();
 };
 //북마크 버튼 클릭이벤트 
 btn_bookmark.addEventListener("click", function () {
-  makeBookmarkArr(movieStorage);
+  if(!btn_bookmark.classList.contains("close_bookmark")){
+    makeBookmarkArr(movieStorage);
+    btn_bookmark.classList.add("close_bookmark");
+  }else{
+    movieContainer.innerHTML="";
+    btn_bookmark.classList.remove("close_bookmark");
+    fetchMovies(movieUrl).then((res)=>{
+      makeMovieCard(res);
+    })
+  }
 });
 
 // 영화 스토리지에서 키 값만 배열에 담음 (영화id)
@@ -126,7 +140,7 @@ const makeBookmarkArr = function (storage) {
   for (let i = 0; i < storage.length; i++) {
     bookmarkArr.push(Number(storage.key(i)));
   }
-  console.log(bookmarkArr);
+  // console.log(bookmarkArr);
   bookmarkMovie(bookmarkArr);
 };
 //배열정보를 url에 대입하여 api호출하고 카드 ui만들기 동작
@@ -138,19 +152,18 @@ const bookmarkMovie = function (arr) {
   movieContainer.innerHTML = "";
   arr.forEach(function(el){
     let Url = movieDetailUrl +`${el}?language=ko-KR`;
-    console.log(Url);
+    // console.log(Url);
     fetchMovies_detail(Url).then(function (result) {
-      console.log(result);
+      // console.log(result);
       bookmarkMovieCard(result);
     })
   });
 };
-
 // 스토리지에 있는 키 값을 가진 영화들을 api에서 호출
 // ㄴ 스토리지의 키값을 배열로 만들고... 그 배열로 api를 매번 호출....
 // 호출한 데이터를 카드로 만들어 목록에 뿌려주기...
 
-const statusBookmark = function (id) {
+export const statusBookmark = function (id) {
   if (movieStorage[id]) {
     // 이미 존재하면
     bookmarkAddBtn.classList.add("saved");
@@ -161,7 +174,7 @@ const statusBookmark = function (id) {
 };
 bookmarkAddBtn.addEventListener("click", function (e) {
   let dataId = e.target.closest(".modal_movie_detail").getAttribute("data-id");
-  console.log(dataId);
+  // console.log(dataId);
 
   if (movieStorage[dataId]) {
     // 이미 존재하면
@@ -174,8 +187,4 @@ bookmarkAddBtn.addEventListener("click", function (e) {
     addBookmark(dataId);
     bookmarkAddBtn.classList.add("saved");
   }
-});
-
-title.addEventListener("click",function(){
-  location.reload();
 });

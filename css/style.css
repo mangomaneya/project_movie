@@ -76,6 +76,16 @@ header{
     border-radius: 0.2rem;
     cursor: pointer;
 }
+.bookmark::after{
+    content: "북마크 보기";
+}
+.close_bookmark{
+    background-color: #ffffff;
+    color: #272727;
+}
+.close_bookmark::after{
+    content: "북마크 닫기";
+}
 /* header */
 
 /* main */
