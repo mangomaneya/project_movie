@@ -30,6 +30,8 @@ export const bookmarkMovieCard = function (m) {
 
 // 영화 상세창 ui
 export const makeMovieDetail = function (info) {
+  const modal_back_img = document.querySelector(".modal_movie_detail");
+  
   const movie_poster_d = document.querySelector(".movie_poster_detail");
   const movie_title_d = document.querySelector(".movie_title_detail");
   const movie_desc_d = document.querySelector(".movie_desc");
@@ -37,6 +39,7 @@ export const makeMovieDetail = function (info) {
   const movie_date_d = document.querySelector(".movie_date");
   const movie_id = document.querySelector(".modal_movie_detail");
 
+  modal_back_img.style.setProperty(`--background-image`,`url(https://image.tmdb.org/t/p/original/${info.backdrop_path})`)
   movie_poster_d.setAttribute(
     "src",
     `https://image.tmdb.org/t/p/original${info.poster_path}`
