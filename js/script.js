@@ -1,7 +1,7 @@
 //api.js module가져오기
 import { fetchMovies, fetchMovies_detail } from "./api.js";
 import { makeMovieCard, makeMovieDetail, movieContainer } from "./ui.js";
-import { statusBookmark } from "./bookmark.js";
+import { statusBookmark, btn_bookmark } from "./bookmark.js";
 
 //api 관련 변수 선언
 export const movieUrl =
@@ -11,7 +11,7 @@ export const movieDetailUrl = "https://api.themoviedb.org/3/movie/";
 // ?query=${query}&include_adult=false&language=ko-KR&page=1
 // DOM 관련 변수 선언
 const btn_search = document.querySelector("#btn_search");
-const input_search = document.querySelector("#input_search");
+export const input_search = document.querySelector("#input_search");
 const modal = document.querySelector(".modal");
 const modal_close = document.querySelector(".detail_close_btn");
 const btn_like = document.querySelector(".like");
@@ -28,16 +28,41 @@ btn_search.addEventListener("click", function () {
   let query = input_search.value.toLowerCase();
   searchMovie(query);
 });
-
+// 디바운싱 기능
+const debounce = function(func, delay) {
+  let timer;
+  return (...args) => {
+    console.log(args);
+    clearTimeout(timer);
+    timer = setTimeout(()=>{
+      // func.apply(this, args);
+      timer = null;
+      func(args[0]);
+    },delay);
+  };  
+}
 // 검색창 엔터 이벤트 - 검색실행
 function enterSearch(event) {
   let query = input_search.value.toLowerCase();
   const code = event.code;
-  if (code === "Enter") {
-    searchMovie(query);
+  if (code == "Enter") {
+    searchMovie(query); 
+  }else{
+    debouncedInput(query);
+    // console.log(query);
   }
 }
-input_search.addEventListener("keyup", enterSearch);
+//debounce 인풋 처리
+const debouncedInput = debounce((query)=>{
+  searchMovie(query)
+},300)
+
+input_search.addEventListener("keyup", (key)=>{
+if(btn_bookmark.classList.contains("close_bookmark")){
+  btn_bookmark.classList.remove("close_bookmark");
+}
+  enterSearch(key);
+});
 
 //query가 포함된 검색결과를 카드에 반영하는 기능
 const searchMovie = function (query) {
@@ -51,7 +76,6 @@ const searchMovie = function (query) {
     if(result.length === 0) {
       movieContainer.innerHTML = "<p>검색된 영화가 없습니다.</p>";
     }
-    
     makeMovieCard(result);
   });
 };

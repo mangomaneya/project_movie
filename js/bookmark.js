@@ -1,10 +1,10 @@
 import { makeMovieCard, movieContainer,bookmarkMovieCard } from "./ui.js";
-import { movieDetailUrl, movieUrl } from "./script.js";
+import { movieDetailUrl, movieUrl, input_search } from "./script.js";
 import { fetchMovies, fetchMovies_detail } from "./api.js";
 
 const movieStorage = window.localStorage;
 const bookmarkAddBtn = document.querySelector(".bookmark_detail");
-const btn_bookmark = document.querySelector(".bookmark");
+export const btn_bookmark = document.querySelector(".bookmark");
 const secretBtn = document.querySelector("#secret_btn");
 
 const addBookmark = function (id) {
@@ -24,6 +24,7 @@ btn_bookmark.addEventListener("click", function () {
   if (!btn_bookmark.classList.contains("close_bookmark")) {
     makeBookmarkArr(movieStorage);
     btn_bookmark.classList.add("close_bookmark");
+    input_search.value = null;
   } else {
     movieContainer.innerHTML = "";
     btn_bookmark.classList.remove("close_bookmark");
@@ -62,6 +63,7 @@ const bookmarkMovie = function (arr) {
 // ㄴ 스토리지의 키값을 배열로 만들고... 그 배열로 api를 매번 호출....
 // 호출한 데이터를 카드로 만들어 목록에 뿌려주기...
 
+//북마크 저장 여부 판단
 export const statusBookmark = function (id) {
   if (movieStorage[id]) {
     // 이미 존재하면
